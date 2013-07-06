@@ -24,7 +24,7 @@ class Gem {
 	 */
 	public function exists($name)
 	{
-		return ! is_null(shell_exec("gem spec $name 2>/dev/null"));
+		return ! is_null(shell_exec("gem spec $name" . (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? "" : " 2>/dev/null")));
 	}
 
 	/**
