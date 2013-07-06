@@ -127,6 +127,10 @@ class GuardMakeCommand extends Command {
 			'guard-phpunit','guard-concat',
 			'jsmin', 'cssmin'
 		);
+		
+		if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+			$requiredGems[] = 'wdm';
+		}
 
 		foreach($requiredGems as $gem)
 		{
